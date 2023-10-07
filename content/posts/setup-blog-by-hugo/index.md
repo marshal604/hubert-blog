@@ -182,13 +182,49 @@ workflow 從紅的變成綠的惹~~
 ![Image](27.png)
 如果失敗的話，可以到 [DNS Checker](https://dnschecker.org/) 查查看是不是 `[google 給的名稱].blog.hubertyang.com` 有沒有存在，反之成功就會看到下圖
 ![Image](28.png)
-
 #### 將 Sitemap 放到 Google Search Console 上
 因為 hugo 有幫我們建立好 sitemap 了，只要到根目錄就可以找到，以我為例就是：`https://blog.hubertyang.com/sitemap.xml`，接著我們就提交吧
 ![Image](29.png)
+
+## 關於頁面分析
+#### 將網站放到 GA 上來分析使用者的瀏覽狀況吧~~
+首先到 `https://marketingplatform.google.com/about/analytics/` 點擊 Get Start Today，然後開始註冊帳號，因為我是註冊 `hubertyang.com` 這個網域，所以我帳號就以這個當作一個 group
+![Image](30.png)
+輸入我要監控的資源名稱，我是要監控 blog，所以我就取名 `blog.hubertyang.com`
+![Image](31.png)
+技術文章應該就...電腦吧？
+![Image](32.png)
+這邊是選擇**提升品牌認知**與**檢視使用者行為**，因為主要是推廣我的部落格，而**取得基準報表**就比較是跟同業比較了
+![Image](33.png)
+選擇網站
+![Image](34.png)
+輸入網站連結，跟好辨識的名稱
+![Image](35.png)
+#### 因為我沒有設定 GA 在 Hugo 上，所以會跳出安裝的介面
+![Image](36.png)
+#### 先把收到的 ID，如 `G-XXXXX` 放到 hugo.toml
+```toml
+googleAnalytics = 'G-XXXXX'
+```
+#### 創建 `_internal/google_analytics.html` 把剛剛複製的 Script 放進去
+![Image](37.png)
+#### 接著放到每個頁面的 head 中
+這邊複製 `themes/ananke/layouts/_default/baseof.html` 到 `layout/_default/baseof.html` 並將 GA 的 html 放到 head 中
+```html
+<head>
+  <!-- 其他的 code -->
+  {{ template "_internal/google_analytics.html" . }}
+</head>
+```
+#### 註冊完後，就可以等時間看數據了
+![Image](38.png)
+
+
+
 
 
 
 ## Reference
 - https://gohugo.io/getting-started/quick-start
 - https://gohugo.io/hosting-and-deployment/hosting-on-github/
+- https://gohugo.io/templates/internal/#google-analytics
