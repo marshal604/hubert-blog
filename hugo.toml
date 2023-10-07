@@ -1,0 +1,4 @@
+baseURL = 'https://hubertyang.blog/'
+languageCode = 'zh-TW'
+title = 'Hubert'
+theme = 'ananke'
