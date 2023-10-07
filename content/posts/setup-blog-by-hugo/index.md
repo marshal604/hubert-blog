@@ -1,7 +1,7 @@
 +++
 title = '使用 Hugo 建置 Blog'
 date = 2023-10-07T10:26:52+08:00
-draft = true
+draft = false
 +++
 
 ## QuickStart
@@ -110,20 +110,61 @@ theme = 'ananke'
 hugo
 ```
 #### Hugo 有提供很多 Deploy 的方式，這邊我會使用 Github 當作這次的示範
-創建 Repository, 我取名叫做 hubert-blog
+創建 Repository，我取名叫做 hubert-blog
 ![Image](5.png)
-推送已經在本地建好的 Repository, marshal604 是我的，你要改成你的
+推送已經在本地建好的 Repository，marshal604 是我的，你要改成你的
 ```bash
 git remote add origin git@github.com:marshal604/hubert-blog.git
 git branch -M master
 git push -u origin master
 ```
+如果推送出現
+```bash
+錯誤: 推送一些引用到 'github.com:marshal604/hubert-blog.git' 失敗
+```
+請記得先做第一次的 `git commit "init project"`，不然是無法推上去的
 
-
-
-
-
-
+#### 接下來到 Settings/Pages 來設定 Github Action
+選擇 GitHub Action
+![Image](6.png)ｓ
+選擇 browse all workflows
+![Image](7.png)
+輸入 Hugo 並選擇
+![Image](8.png)
+直接到右邊點擊 Commit Changes，再接著直接 Commit Changes 即可
+![Image](9.png)
+這個 Commit Changes 會觸發我們剛剛設定的 Workflow，可以到 Action 看
+![Image](10.png)
+不過因為我沒有把 submodule 的 reference 加進去，所以讀不到 theme
+![Image](11.png)
+這邊只要在把 submodule 的 commit 補上去即可
+```bash
+git add theme/ananke
+git commit -m "feat: add theme ananke submodule reference"
+```
+workflow 從紅的變成綠的惹~~
+![Image](12.png)
+#### 確認部署上去的頁面
+點擊部署的網址
+![Image](13.png)
+大功告成！！
+![Image](14.png)
+## 設定自己的 domain
+---
+#### 我是去 Godaddy 找了個喜歡的網域買起來
+![Image](15.png)
+#### 不過因為我之前有買過 `hubertyang.com` 了，所以打算沿用，這邊可以到帳戶裡的 Domain DNS 做設定
+![Image](16.png)
+#### 把 `github.io` 指向 `blog.hubertyang.com`
+![Image](17.png)
+#### 然後到 `github` 設定 custom domain `blog.hubertyang.com`
+![Image](18.png)
+#### DNS設定需要時間，失敗的話等一下再來嘗試
+![Image](19.png)
+#### 打開 hugo.toml 更新原先的 base url 為 `https://blog.hubertyang.com`
+![Image](20.png)
+#### 成功轉址
+![Image](21.png)
 
 ## Reference
 - https://gohugo.io/getting-started/quick-start
