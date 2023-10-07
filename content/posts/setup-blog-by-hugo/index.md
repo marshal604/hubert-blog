@@ -3,7 +3,6 @@ title = '使用 Hugo 建置 Blog'
 date = 2023-10-07T10:26:52+08:00
 draft = false
 +++
-
 ## QuickStart
 ---
 #### 安裝 hugo
@@ -165,6 +164,30 @@ workflow 從紅的變成綠的惹~~
 ![Image](20.png)
 #### 成功轉址
 ![Image](21.png)
+
+## 關於 SEO
+---
+#### 通常我們會建立 sitemap.xml 給搜尋引擎查看，但 hugo 在 build 時已經內建，所以只要打 `hugo` 就可以檢查我們是不是也有 sitemap.xml
+![Image](23.png)
+#### 到 Google Search Console 登錄網域
+到[Google Search Console](https://search.google.com/search-console/about) 點擊立即開始
+![Image](24.png)
+輸入自己的網域，以我為例是 `blog.hubertyang.com`
+![Image](22.png)
+接著將操作說明選項選為『任何DNS供應商』，並且選取記錄類型選項選為『CNAME』，接著複製 `CNAME 標籤/主機` 與 `CNAME 目的地/目標`
+![Image](25.png)
+回到自己的 DNS 註冊商位置，以我為例是 Godaddy，主要是把複製的資料放到 CNAME，這裡有個重點是我把複製的資料後面新增了 `.blog`，因為是單獨給子網域的，要注意，不然會驗證不了的
+![Image](26.png)
+接著就可以回到 Google Search 點擊驗證
+![Image](27.png)
+如果失敗的話，可以到 [DNS Checker](https://dnschecker.org/) 查查看是不是 `[google 給的名稱].blog.hubertyang.com` 有沒有存在，反之成功就會看到下圖
+![Image](28.png)
+
+#### 將 Sitemap 放到 Google Search Console 上
+因為 hugo 有幫我們建立好 sitemap 了，只要到根目錄就可以找到，以我為例就是：`https://blog.hubertyang.com/sitemap.xml`，接著我們就提交吧
+![Image](29.png)
+
+
 
 ## Reference
 - https://gohugo.io/getting-started/quick-start
