@@ -2,6 +2,7 @@
 title = '使用 Hugo 建置部落格'
 date = 2023-10-07T10:26:52+08:00
 draft = false
+tags = ['hugo']
 +++
 ## QuickStart
 ---
