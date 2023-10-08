@@ -1,5 +1,5 @@
 +++
-title = '使用 Hugo 建置 Blog'
+title = '使用 Hugo 建置部落格'
 date = 2023-10-07T10:26:52+08:00
 draft = false
 +++
@@ -209,7 +209,7 @@ googleAnalytics = 'G-XXXXX'
 #### 創建 `_internal/google_analytics.html` 把剛剛複製的 Script 放進去
 ![Image](37.png)
 #### 接著放到每個頁面的 head 中
-這邊複製 `themes/ananke/layouts/_default/baseof.html` 到 `layout/_default/baseof.html` 並將 GA 的 html 放到 head 中
+這邊複製 `themes/ananke/layouts/_default/baseof.html` 到 `layouts/_default/baseof.html` 並將 GA 的 html 放到 head 中
 ```html
 <head>
   <!-- 其他的 code -->
@@ -218,11 +218,6 @@ googleAnalytics = 'G-XXXXX'
 ```
 #### 註冊完後，就可以等時間看數據了
 ![Image](38.png)
-
-
-
-
-
 
 ## Reference
 - https://gohugo.io/getting-started/quick-start
