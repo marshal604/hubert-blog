@@ -1,5 +1,5 @@
 baseURL = 'https://blog.hubertyang.com/'
 languageCode = 'zh-TW'
-title = 'Hubert'
+title = 'Hubert Notes'
 theme = 'ananke'
 googleAnalytics = 'G-NH220SK4BQ'

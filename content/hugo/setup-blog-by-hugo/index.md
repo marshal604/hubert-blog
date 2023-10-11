@@ -1,7 +1,9 @@
 +++
-title = '使用 Hugo 建置部落格'
+title = 'Hugo + GitHub + GA4 建置個人部落格'
 date = 2023-10-07T10:26:52+08:00
 draft = false
+featured_image = 'feature_image.png'
+description = '使用 Hugo 搭配 Ananke Theme 創建第一個部落格，利用 GitHub Action 完成 Deploy，並使用 Godaddy 創建個人化的 Domain，最後再藉由 Google Analysis 4 與 Google Search Console 來追蹤文章成效'
 tags = ['hugo']
 +++
 ## QuickStart
