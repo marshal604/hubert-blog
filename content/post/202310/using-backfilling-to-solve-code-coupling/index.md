@@ -64,16 +64,19 @@ weight_score = Calculator(type, value)
 3) 新增一個模組 F 去創建一個專屬報表用的 [OLAP](https://en.wikipedia.org/wiki/Online_analytical_processing) Table
 4) 模組 E 回傳扣分後的 **使用者評分表** ids，使用 Backfilling 方式回填進 Table
 
-TBD...
+### 1) Workaround 做法，先這樣就好
+如果時程上真的趕不上才會先這樣做，後續開個重構單來處理，但通常不會處理...
+所以這次時間還算充裕的情況下是不會選擇
 
-### Workaround 做法，先這樣就好
+### 2) 只存 type ， weight_score 在產報表時再計算
+原先是打算用這個的，因為只在報表處進行處理寫起來比較乾淨，不過因為報表資料是要留存的，但加權計算方式有可能隨時間改變而變動，這樣後續要產過去報表驗證時就可能會得到錯誤的數值，所以很可惜無法用這個方式
 
-### 只存 type ， weight_score 在產報表時再計算
-
+# TBD...
+---
 ### 新增一個模組 F 去創建一個專屬報表用的 OLAP Table
+
 
 ### 模組 E 回傳扣分後的 **使用者評分表** ids，使用 Backfilling 方式回填進 Table
 
 ## 小結
 ---
-
