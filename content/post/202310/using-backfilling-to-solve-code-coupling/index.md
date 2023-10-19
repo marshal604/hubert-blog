@@ -6,7 +6,7 @@ featured_image = 'featured_image.png'
 description = '從考慮使用 OLAP Table 到 Backfilling Data 的決策過程'
 tags = ['Backend', 'Software Design', 'Problem Solving', 'Working Notes']
 +++
-> 這是關於整理報表時，遇到兩個模組間邏輯會打架的工作雜記
+> 這是關於整理報表時，遇到兩個模組間邏輯會打架的工作雜記，以下除了處理過程相似，其他模組與表格都是虛構
 ## 故事脈絡
 ---
 最近遇到要把以前的報表新增**加權分數(weighted_score)**的欄位，而報表資料主要是從**使用者評分表 Table** 撈取出來整理的，**加權分數**以前是在其他模組計算但沒有被存放到 Table 中，**使用者評分表**的 Schema 簡化後大概如下
