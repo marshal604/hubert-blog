@@ -12,11 +12,9 @@ tags = ['DevOps', 'GitHub Workflow', 'Working Notes']
 
 公司現行採用 GitHub Flow 進行分支管理。雖然我們大致上每週 Release 新版本，但有時會因 Hotfix 或功能實驗，導致 Release 節奏被打亂，產生以下問題：
 
-main branch 可能被提前合併未來要 Release 的功能
-
-若上線後需修正，又要 revert 其他功能或暫時禁止合併
-
-需要人工確認各種狀態，流程繁瑣且易出錯
+1. main branch 可能被提前合併未來要 Release 的功能
+2. 若上線後需修正，又要 revert 其他功能或暫時禁止合併
+3. 需要人工確認各種狀態，流程繁瑣且易出錯
 
 ## 解決方案：Release PR + main branch Freeze
 
@@ -42,11 +40,9 @@ GitHub 原生僅支援 手動鎖定分支，並無自動 freeze 功能。因此�
 
 運作方式：
 
-只要 PR 有 merge-freeze label，workflow 讓 PR 的檢查狀態失敗（failed），不能 merge
-
-監控 PR 加/移除 label、內容同步時自動觸發
-
-顯示提示：「需先移除 merge-freeze 標籤才可合併」
+- 只要 PR 有 merge-freeze label，workflow 讓 PR 的檢查狀態失敗（failed），不能 merge
+- 監控 PR 加/移除 label、內容同步時自動觸發
+  顯示提示：「需先移除 merge-freeze 標籤才可合併」
 
 2️⃣ Merge Freeze Labeler
 用途：
@@ -54,13 +50,12 @@ GitHub 原生僅支援 手動鎖定分支，並無自動 freeze 功能。因此�
 
 運作方式：
 
-只要有 release/\* 開頭的 branch 開啟、同步或關閉 PR，此 workflow 自動執行
+- 只要有 release/\* 開頭的 branch 開啟、同步或關閉 PR，此 workflow 自動執行
+- 當 release PR 開啟或同步：自動幫所有「目標 main，來源非 release」的 open PR 加上 merge-freeze 標籤
+- 當 release PR 關閉：自動移除上述 PR 的 freeze 標籤，恢復合併權限
+  僅針對 release branch 操作，其餘不影響
 
-當 release PR 開啟或同步：自動幫所有「目標 main，來源非 release」的 open PR 加上 merge-freeze 標籤
-
-當 release PR 關閉：自動移除上述 PR 的 freeze 標籤，恢復合併權限
-
-僅針對 release branch 操作，其餘不影響
+## 結果圖
 
 ![完成 Demo 圖](./demo.png)
 
@@ -71,6 +66,9 @@ GitHub 原生僅支援 手動鎖定分支，並無自動 freeze 功能。因此�
 | Freeze main branch | Merge Freeze Blocker | PR 有 freeze label 就擋合併     |
 | 管理 freeze 標籤   | Merge Freeze Labeler | 自動加/移 freeze 標籤，控制時機 |
 
-## 程式碼
+## 小結
+
+透過 GitHub Workflow 實現自動 Freeze Main Branch，可以讓我們的 Release 流程更順暢，也可以讓我們的開發者更清楚知道什麼時候可以合併，什麼時候不能合併。
+以下是這次實作的相關程式碼，有一個重點是，為了讓 label 可以正確被 trigger，我們不能透過內建的 `secret.GITHUB_TOKEN` 而是要自己建立 PAT (Personal Access Token) 來做 trigger。
 
 https://github.com/marshal604/github-merge-freeze
