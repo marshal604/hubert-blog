@@ -1,12 +1,11 @@
 +++
-title = '如何用 GitHub Workflow 實現自動 Freeze Main Branch'
+title = '如何用 GitHub Workflow 實現 GitHub Merge Freeze 自動化'
 date = 2025-06-09T10:00:00+08:00
 draft = false
 featured_image = 'featured_image.png'
+description = '教學：如何利用 GitHub Workflow 自動化實現 GitHub Merge Freeze 機制，在 Release 期間保護你的 main branch，避免錯誤合併，提升團隊開發效率。'
 tags = ['DevOps', 'GitHub Workflow', 'Working Notes']
 +++
-
-# 如何用 GitHub Workflow 實現自動 Freeze Main Branch
 
 ## 當前狀況
 
@@ -16,7 +15,9 @@ tags = ['DevOps', 'GitHub Workflow', 'Working Notes']
 2. 若上線後需修正，又要 revert 其他功能或暫時禁止合併
 3. 需要人工確認各種狀態，流程繁瑣且易出錯
 
-## 解決方案：Release PR + main branch Freeze
+為了解決這些問題，我們導入了所謂的「GitHub Merge Freeze」機制，也就是在 Release 期間，透過 GitHub Actions 自動凍結 `main` branch，確保版本穩定。
+
+## 解決方案：Release PR + Merge Freeze
 
 我們優化後的流程如下：
 
