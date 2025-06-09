@@ -54,6 +54,7 @@ GitHub 原生僅支援 手動鎖定分支，並無自動 freeze 功能。因此�
 - 當 release PR 開啟或同步：自動幫所有「目標 main，來源非 release」的 open PR 加上 merge-freeze 標籤
 - 當 release PR 關閉：自動移除上述 PR 的 freeze 標籤，恢復合併權限
   僅針對 release branch 操作，其餘不影響
+- 額外處理：當其他 non-release PR 有內容更新時，會去確認當前 PRs 有沒有 open 的 release PR，有的話就加上 `merge-freeze` 標籤，沒有的話就移除。
 
 ## 結果圖
 
