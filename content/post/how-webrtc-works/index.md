@@ -3,6 +3,7 @@ title = 'WebRTC 運作原理筆記'
 date = 2025-06-22T14:00:00+08:00
 draft = false
 featured_image = 'featured_image.png'
+description = '整理 WebRTC 的基本概念與連線流程，包含 RTCPeerConnection、SDP 與 ICE Candidate，記錄實際開發中遇到的重點與理解。'
 tags = ['Frontend', 'WebRTC']
 +++
 
