@@ -4,7 +4,7 @@ date = 2024-06-22T14:00:00+08:00
 draft = false
 featured_image = 'featured_image.png'
 description = '整理 WebRTC 的基本概念與連線流程，包含 RTCPeerConnection、SDP 與 ICE Candidate，記錄連線中會用到的協定與概念'
-tags = ['Frontend', 'WebRTC', 'SDP', 'ICE', 'NAT Traversal', 'P2P']
+tags = ['Frontend', 'WebRTC']
 +++
 
 ## Overview
