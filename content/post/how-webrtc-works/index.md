@@ -3,7 +3,7 @@ title = 'WebRTC 運作原理入門：一次搞懂 SDP、ICE 與 NAT 穿透'
 date = 2024-06-22T14:00:00+08:00
 draft = false
 featured_image = 'featured_image.png'
-description = '本文深入淺出介紹 WebRTC 的運作原理，從 RTCPeerConnection、SDP 到 ICE Candidate，並解釋 STUN/TURN 如何實現 NAT 穿透，幫助你完全理解 WebRTC 的連線流程。'
+description = '整理 WebRTC 的基本概念與連線流程，包含 RTCPeerConnection、SDP 與 ICE Candidate，記錄連線中會用到的協定與概念'
 tags = ['Frontend', 'WebRTC', 'SDP', 'ICE', 'NAT Traversal', 'P2P']
 +++
 
